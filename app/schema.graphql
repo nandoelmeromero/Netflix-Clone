@@ -1,0 +1,39 @@
+
+type Query{
+ prueba:String
+ Usuarios: [Usuario]
+ Usuario(id:ID!):Usuario 
+ Peliculas: [Pelicula]
+ Pelicula(id:ID!): Pelicula
+ PeliculasClasificacion(clasificacion:clasificacion!): [Pelicula]
+
+}
+
+type Usuario{
+ _id: ID 
+ nombre: String  
+ apellido: String
+ correo: String
+ suscripcion: String
+ is_active: Boolean
+}
+
+type Pelicula{
+  _id: ID
+ nombrePelicula: String
+ clasificacion: clasificacion 
+ sinopsis: String
+ director: String
+ duracion: String
+ portadaPelicula: String
+ puntuacion: Float
+ urlPelicula: String
+ is_active: Boolean 
+}
+
+enum clasificacion {
+ Terror
+ Heorismo
+ Accion
+ Romanticismo
+}

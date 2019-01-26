@@ -1,0 +1,22 @@
+{
+  "name": "netflix",
+  "version": "1.0.0",
+  "description": "clone de netflix",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"nodemon  ./app/app.js" 
+  },
+  "author": "Nando",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "graphql-import": "^0.7.1",
+    "graphql-tools": "^4.0.3",
+    "graphql-yoga": "^1.17.0",
+    "jsonwebtoken": "^8.4.0",
+    "mongoose": "^5.4.6",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.9"
+  }
+}
