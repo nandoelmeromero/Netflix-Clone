@@ -51,4 +51,10 @@ const PeliculasSchema = newSchema({
     }
 
 
-})
+}, { "collection": "movies", "timestamps": true })
+
+mongoose.Types.ObjectId.prototype.valueOf = function () { //
+	return this.toString();
+};
+
+module.exports = mongoose.model("movies", UserSchema);
