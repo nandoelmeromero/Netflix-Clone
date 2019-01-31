@@ -18,11 +18,15 @@ const ENVS = {
         db: {
             url: "mongodb://testingnetflixclone:C11D10E09a@ds113825.mlab.com:13825/netflixclonetest"
         },
-        port: 3000
+        
     },
 
-    production:{
-
+    production:{ //Esto es para setearlo por varibales de entorno. Agarramos una base de datos de MBLab
+        SECRET_KEY:procces.env.SECRET_KEY, 
+        db: {
+            url: procces.env.MONGO_URL
+        },
+        
     }
 
 };
