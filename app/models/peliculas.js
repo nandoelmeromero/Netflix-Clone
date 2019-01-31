@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const PeliculasSchema = newSchema({
+const PeliculasSchema = new Schema({
 
     nombrePelicula:{
         type: String,
@@ -27,17 +27,17 @@ const PeliculasSchema = newSchema({
 
     duracion:{
         type:String,
-        required: true
+        //required: true
     },
 
     portadaPelicula:{
         type: String,
-        required: true
+        //required: true
     },
 
     puntuacion:{
         type: Number,
-        required: true
+        //required: true
     },
 
     urlPelicula:{
@@ -47,7 +47,7 @@ const PeliculasSchema = newSchema({
 
     is_active:{
         type: Boolean,
-        required: true
+        //required: true
     }
 
 
@@ -57,4 +57,4 @@ mongoose.Types.ObjectId.prototype.valueOf = function () { //
 	return this.toString();
 };
 
-module.exports = mongoose.model("movies", UserSchema);
+module.exports = mongoose.model("movies", PeliculasSchema);

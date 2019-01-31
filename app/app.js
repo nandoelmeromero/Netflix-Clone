@@ -3,7 +3,7 @@ const Config = require("./config");//Trae la conexion a la base de datos
 const { GraphQLServer } = require("graphql-yoga"); //Ayuda a levantar el server
 const resolvers = require("./resolvers");//Son todas las resolvers (Querys y mutations) de Graphql
 const { importSchema } = require("graphql-import");//Convierte el Schema.graphql en js puro. Se ponen el llaves por que se encapsulan y son palabras reservadas
-const { makeExecutableSchema } = require("graphql-tools");//Es para crear el esquema de Graphql, es la convinacion entre los resolvers y el Schema.graphql
+const { makeExecutableSchema } = require("graphql-tools");//Es para crear el esquema de Graphql, es la combinacion entre los resolvers y el Schema.graphql
 const typeDefs = importSchema("./app/schema.graphql");// Es el Schema.graphql
 const mongoose = require("mongoose"); //Driver de mongo
 

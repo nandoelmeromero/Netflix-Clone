@@ -14,7 +14,11 @@ const ENVS = {
     },
 
     test: {
-
+        SECRET_KEY:"v1wM7fap69yohwpc5Zd0", //Esto es random, cualquiera puede ser
+        db: {
+            url: "mongodb://testingnetflixclone:C11D10E09a@ds113825.mlab.com:13825/netflixclonetest"
+        },
+        port: 3000
     },
 
     production:{

@@ -1,3 +1,5 @@
+# Es un tipo de dato especial y hace un string de datos
+scalar Upload 
 
 type Query{
  prueba:String
@@ -6,6 +8,35 @@ type Query{
  Peliculas: [Pelicula]
  Pelicula(id:ID!): Pelicula
  PeliculasClasificacion(clasificacion:clasificacion!): [Pelicula]
+}
+
+type Mutation{
+  
+  crearUsuario(nombre:String,
+   apellido:String,
+   correo:String,
+   contrasena:String
+  ):Usuario  #Esto te regresa un usuario
+
+  actualizarUsuario(id:ID,
+   nombre:String,
+   apellido:String
+  ):Usuario
+
+  borrarUsuario(id:ID):String
+
+  
+  
+  crearPelicula(nombrePelicula:String,
+   director:String,
+   clasificacion:clasificacion,
+   sinopsis:String,
+   urlPelicula:String,
+  
+  ):Pelicula
+
+  borrarPelicula(id:ID):String
+
 
 }
 

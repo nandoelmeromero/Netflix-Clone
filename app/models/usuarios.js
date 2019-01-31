@@ -3,9 +3,14 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const UsuarioSchema = newSchema({ //Esto sirve para la publicacion
+const UsuarioSchema = new Schema({ //Esto sirve para la publicacion
 
  //Esto define el tipo de dato que seran nuestras variables y como se van a registrar
+ 
+ fotoPerfil:{
+    type: String
+ },
+
  nombre:{
     type: String,
     required: [true, "El nombre es obligatorio"] //Con esto, mongoose te dice lo que te hace falta
@@ -13,27 +18,27 @@ const UsuarioSchema = newSchema({ //Esto sirve para la publicacion
 
  apellido:{
     type: String,
-    required: true
+    required: true [true, "El apellido es obligatorio"]
  },
 
  correo:{
     type: String,
-    required: true
+    required: true [true, "El correo es obligatorio"]
  },
 
- contraseña:{
+ contrasena:{
     type: String,
-    required: true
+    required: true [true, "La contrasena es obligatorio"]
  },
 
  suscripcion:{
     type: Boolean,
-    required: true
+   // required: true [true, "la suscripcion es obligatorio"]
  },
 
  is_active:{
     type: Boolean,
-    required: true
+    //required: true
  }
 
 
@@ -44,6 +49,6 @@ mongoose.Types.ObjectId.prototype.valueOf = function () { //
 	return this.toString();
 };
 
-module.exports = mongoose.model("users", UserSchema);
+module.exports = mongoose.model("users", UsuarioSchema);
 
 //ME falta exportar el token y traer la libreria de bycript
