@@ -22,9 +22,9 @@ const ENVS = {
     },
 
     production:{ //Esto es para setearlo por varibales de entorno. Agarramos una base de datos de MBLab
-        SECRET_KEY:procces.env.SECRET_KEY, 
+        SECRET_KEY:process.env.SECRET_KEY, 
         db: {
-            url: procces.env.MONGO_URL
+            url: process.env.MONGO_URL
         },
         
     }

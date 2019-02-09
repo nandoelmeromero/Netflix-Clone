@@ -1,4 +1,5 @@
 const actions = require("../actions");
+const { storeUpload } = require("../utils");
 
 //Metodo Post.
 const crearUsuario = (_,args,context, info) =>{ console.log(args)
@@ -6,9 +7,26 @@ const crearUsuario = (_,args,context, info) =>{ console.log(args)
     return actions.crearUsuario(data).then((user) => user).catch( e => e ); 
 }
 
-const crearPelicula = (_,args,context,info) => {
-    const data = { nombrePelicula:args.nombrePelicula, director:args.director,clasificacion:args.clasificacion,sinopsis:args.sinopsis,urlPelicula:args.urlPelicula}
-    return actions.crearPelicula(data).then((movies) => movies).catch( e => e );
+const crearPelicula = async (_,args,context,info) => { //Con asyn indicas que ahi se hace la promesa
+    
+    
+    //REVISAR
+    const data = { nombrePelicula:args.data.nombrePelicula, director:args.data.director,sinopsis:args.data.sinopsis,urlPelicula:args.data.urlPelicula,duracion:args.data.duracion}
+    const { createReadStream,filename } = await args.data.portadaPelicula;
+    const stream = createReadStream();
+    const { url } =  await storeUpload({stream,filename}); //await indica que ahì regresas la promesa
+    
+    console.log(url);
+    data.portadaPelicula = url;
+    console.log(data.portadaPelicula)
+    
+    return actions.crearPelicula(data).then(
+		token => { return { "message": "Portada Agregada correctamente", token: token }; }
+	).catch(e => e);
+    //REVISAR
+    
+    /* console.log(data); */
+    actions.crearPelicula(args.data).then((movies) => movies).catch( e => e );
 }
 
 //Metodo Update.
@@ -26,8 +44,6 @@ const borrarUsuario =  (_,args,context,info) => {
 const borrarPelicula = (_,args,context,info) => { 
     return actions.borrarPelicula(args.id).then(() => "Pelicula borrada exitosamente");
 }
-
-
 
 
 module.exports = {

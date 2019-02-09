@@ -42,7 +42,7 @@ const PeliculasSchema = new Schema({
 
     urlPelicula:{
         type: String,
-        required: true
+        /* required: true */
     },
 
     is_active:{

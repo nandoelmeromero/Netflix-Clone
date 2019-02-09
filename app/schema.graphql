@@ -25,18 +25,15 @@ type Mutation{
 
   borrarUsuario(id:ID):String
 
-  
-  
-  crearPelicula(nombrePelicula:String,
-   director:String,
-   clasificacion:clasificacion,
-   sinopsis:String,
-   urlPelicula:String,
+  crearPelicula(
+    
+    data:crearPelicula!
   
   ):Pelicula
 
   borrarPelicula(id:ID):String
 
+  agregarComentario(text:String):comentario! #Para agregar un nuevo comentario para mi subscriptio
 
 }
 
@@ -60,6 +57,7 @@ type Pelicula{
  puntuacion: Float
  urlPelicula: String
  is_active: Boolean 
+ 
 }
 
 enum clasificacion {
@@ -67,4 +65,23 @@ enum clasificacion {
  Heorismo
  Accion
  Romanticismo
+}
+
+input crearPelicula {
+  nombrePelicula:String
+  director:String
+  portadaPelicula:Upload
+  duracion:String
+  urlPelicula:String
+  sinopsis:String
+}
+
+#Suscription, para comenatrio en tiempo real
+type suscripcion {
+  comentarioNuevo: comentario! #definimos nuestra subcription
+}
+
+type comentario {
+  id:Int!
+  text:String!
 }
