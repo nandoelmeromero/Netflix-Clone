@@ -33,9 +33,6 @@ const Pelicula = (_,args,context,info) => {
 
 
 
-
-
-
 module.exports = {
     prueba,
     Usuarios,
