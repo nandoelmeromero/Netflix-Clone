@@ -7,7 +7,7 @@ const crearUsuario = (_,args,context, info) =>{ console.log(args)
     return actions.crearUsuario(data).then((user) => user).catch( e => e ); 
 }
 
-const crearPelicula = async (_,args,context,info) => { //Con asyn indicas que ahi se hace la promesa
+const crearPelicula = async (_,args,context,info) => { //Con async indicas que ahi se hace la promesa
     
     
     //REVISAR
